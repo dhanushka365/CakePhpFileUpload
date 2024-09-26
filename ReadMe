@@ -1,0 +1,7 @@
+# First we need to build and up the project
+-- docker-compose build
+-- docker-compose up
+
+# after first two steps we need to login to the container and install CakePHP
+-- docker exec -it pdfreader-cakephp-app bash 
+-- composer create-project --prefer-dist cakephp/app:~5.0 .

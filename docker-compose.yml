@@ -1,0 +1,24 @@
+services:
+  cakephp-app:
+    container_name: pdfreader-cakephp-app
+    build: .
+    volumes:
+      - ./myapp:/var/www/html
+    ports:
+      - 8000:80
+
+  mysql_db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: my_app
+    ports:
+      - 3307:3307   # Corrected the port mapping format
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - 3004:80
+    environment:
+      - PMA_ARBITRARY=1
